@@ -46,7 +46,6 @@ class ProductFixtures extends Fixture
             $product->setPrice($faker->randomNumber(3, false));
             $product->setImage('test.jpg');
             $product->setMaterial('béton');
-            $product->setFeature('Sans-fil');
             $manager->persist($product);
             $this->addReference('product_outillage_' . $key, $product);
         }
@@ -58,7 +57,6 @@ class ProductFixtures extends Fixture
             $product->setMarque('Ikea');
             $product->setPrice($faker->randomNumber(3, false));
             $product->setImage('testhome.jpg');
-            $product->setFeature('Souple');
             $manager->persist($product);
             $this->addReference('product_home' . $key, $product);
         }
@@ -70,7 +68,6 @@ class ProductFixtures extends Fixture
             $product->setMarque('Huskvarna');
             $product->setPrice($faker->randomNumber(4, false));
             $product->setImage('testhome.jpg');
-            $product->setFeature($faker->word());
             $manager->persist($product);
             $this->addReference('product_jardinage' . $key, $product);
         }

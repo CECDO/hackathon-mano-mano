@@ -50,11 +50,6 @@ class Product
     private $material;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $feature;
-
-    /**
      * @ORM\OneToMany(targetEntity=Command::class, mappedBy="product")
      */
     private $commands;
@@ -64,6 +59,11 @@ class Product
      * @ORM\JoinColumn(nullable=false)
      */
     private $category;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Caracteristique::class, inversedBy="product")
+     */
+    private $caracteristique;
 
     public function __construct()
     {
@@ -147,18 +147,6 @@ class Product
         return $this;
     }
 
-    public function getFeature(): ?string
-    {
-        return $this->feature;
-    }
-
-    public function setFeature(?string $feature): self
-    {
-        $this->feature = $feature;
-
-        return $this;
-    }
-
     /**
      * @return Collection|Command[]
      */
@@ -197,6 +185,18 @@ class Product
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getCaracteristique(): ?Caracteristique
+    {
+        return $this->caracteristique;
+    }
+
+    public function setCaracteristique(?Caracteristique $caracteristique): self
+    {
+        $this->caracteristique = $caracteristique;
 
         return $this;
     }
