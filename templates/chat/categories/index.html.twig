@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProductController!{% endblock %}
+
+{% block body %}
+{% for category in categories %}
+    <button><a href="{{path('chat_category_id', {'id': category.id} )}}">{{category.icon}} {{category.alt}}</a></button>
+{% endfor %}
+{% endblock %}

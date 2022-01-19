@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DefaultController!{% endblock %}
+
+{% block body %}
+<h1>Bienvenue sur le chat Mano Mano</h1>
+<p>Bonjour je suis ManoBot, comment puis je vous aider ? votre question concerne peut-être une demande ci dessous?</p>
+<button><a href="{{path('chat_category_all') }}">Je cherche un produit</a></button>
+<button>Suivre une commande</button>
+<button>Editer ma facture</button>
+<button>Retourner un article</button>
+<button>Contacter le SAV</button>
+{% endblock %}

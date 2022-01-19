@@ -1,0 +1,15 @@
+<pre>
+    {{ dump(category) }}
+</pre>
+
+{{category.icon}}
+
+<p>Veuillez saisir le type de produit dans la barre de recherche</p>
+<input></input>
+{% for product in category.products %}
+
+<button>{{product.name}}</button>
+
+{% endfor %}
+
+
