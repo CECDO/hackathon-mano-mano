@@ -16,7 +16,7 @@ class IntentityUseController extends AbstractController
      */
     public function index(Materiaux $materiaux, Product $product, Caracteristique $caracteristique): Response
     {
-        return $this->render('chat/intentity/index.html.twig', [
+        return $this->render('chat/product/intentity/index.html.twig', [
             'materiaux' => $materiaux,
             'product' => $product,
             'caracteristique' => $caracteristique,

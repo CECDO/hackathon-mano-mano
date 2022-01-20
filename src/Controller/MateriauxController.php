@@ -16,7 +16,7 @@ class MateriauxController extends AbstractController
      */
     public function index(Materiaux $materiaux, Product $product, Caracteristique $caracteristique): Response
     {
-        return $this->render('chat/materiaux/index.html.twig', [
+        return $this->render('chat/product/materiaux/index.html.twig', [
             'materiaux' => $materiaux,
             'product' => $product,
             'caracteristique' => $caracteristique,

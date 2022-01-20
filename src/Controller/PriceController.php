@@ -16,7 +16,7 @@ class PriceController extends AbstractController
      */
     public function index(Materiaux $materiaux, Product $product, Caracteristique $caracteristique): Response
     {
-        return $this->render('chat/price/index.html.twig', [
+        return $this->render('chat/product/price/index.html.twig', [
             'materiaux' => $materiaux,
             'product' => $product,
             'caracteristique' => $caracteristique,
