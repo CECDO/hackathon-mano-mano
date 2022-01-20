@@ -10,18 +10,17 @@ class CaracteristiqueFixtures extends Fixture
 {
     const FEATURES = [
         'Sans-Fil',
-        'Filaire',
-        'Normal',
-        'Souple',
-        'King-size',
+        'Filaire'
     ];
 
     public function load(ObjectManager $manager): void
     {
         foreach (self::FEATURES as $key => $value) {
-            $Caracteristique = new Caracteristique();
-            $Caracteristique->setName($value);
-            $manager->persist($Caracteristique);
+            $caracteristique = new Caracteristique();
+            $caracteristique->setName($value);
+            $this->addReference('caracteristique_' . $key, $caracteristique);
+
+            $manager->persist($caracteristique);
         }
 
         $manager->flush();

@@ -14,23 +14,6 @@ class ProductFixtures extends Fixture
 
     const OUTILLAGE = [
         'Perceuse',
-        'Meuleuse',
-        'Ponceuse',
-        'Défonceuse',
-    ];
-
-    const HOME = [
-        'Lit',
-        'Table de chevet',
-        'Chaise',
-        'Canapé',
-    ];
-
-    const JARDINAGE = [
-        'Brouette',
-        'Secateur',
-        'Débroussailleuse',
-        'Tondeuse',
     ];
 
     public function load(ObjectManager $manager): void
@@ -42,34 +25,14 @@ class ProductFixtures extends Fixture
             $product->setCategory($this->getReference('category_Outillage'));
             $product->setName($value);
             $product->setMarque('Bosh');
-            $product->setUtilisation('Intensif');
-            $product->setPrice($faker->randomNumber(3, false));
-            $product->setImage('test.jpg');
+            $product->setUtilisation('Occasionel');
+            $product->setPrice(126);
+            $product->setImage('https://www.lidl.be/media/53a336b0b443b3893d4c6e5e0316deb7.jpeg');
             $product->setMaterial('béton');
+            $product->addFeature($this->getReference('caracteristique_0'));
+            $product->setMateriaux($this->getReference('materiaux_0'));
             $manager->persist($product);
             $this->addReference('product_outillage_' . $key, $product);
-        }
-
-        foreach (self::HOME as $key => $value) {
-            $product = new Product();
-            $product->setCategory($this->getReference('category_Maison'));
-            $product->setName($value);
-            $product->setMarque('Ikea');
-            $product->setPrice($faker->randomNumber(3, false));
-            $product->setImage('testhome.jpg');
-            $manager->persist($product);
-            $this->addReference('product_home' . $key, $product);
-        }
-
-        foreach (self::JARDINAGE as $key => $value) {
-            $product = new Product();
-            $product->setCategory($this->getReference('category_Jardinage'));
-            $product->setName($value);
-            $product->setMarque('Huskvarna');
-            $product->setPrice($faker->randomNumber(4, false));
-            $product->setImage('testhome.jpg');
-            $manager->persist($product);
-            $this->addReference('product_jardinage' . $key, $product);
         }
         $manager->flush();
     }
@@ -78,6 +41,7 @@ class ProductFixtures extends Fixture
     {
         return [
             CategoryFixtures::class,
+            CaracteristiqueFixtures::class
         ];
     }
 }
