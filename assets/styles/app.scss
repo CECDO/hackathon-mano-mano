@@ -14,3 +14,13 @@ img {
     height: auto; 
     display: block;
 }
+
+.scroll-container {
+    height: 540px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+  }
+
+.black{
+    color: black;
+}
