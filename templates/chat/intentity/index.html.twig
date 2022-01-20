@@ -23,9 +23,14 @@
         Dur
     {% endif %}
 
-    <p>Frequence d’utilisation?</p>
-    <button>Intensif</button>
-    <button><a href="/intentity/1">Occasionel</a></button>
+    <p>Fréquence d'utilisation ?</p>
+    {% if caracteristique.name == "Sans-Fil" %}
+        Occationnnel
+    {% endif %}
 
+    <p>Fourchette de prix ?</p>
+    <button>0 - 100</button>
+    <button><a href="/price/1">100 - 200</a></button>
+    <button>200 +</button>
 
 {% endblock %}

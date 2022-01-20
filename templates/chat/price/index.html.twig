@@ -23,9 +23,19 @@
         Dur
     {% endif %}
 
-    <p>Frequence d’utilisation?</p>
-    <button>Intensif</button>
-    <button><a href="/intentity/1">Occasionel</a></button>
+    <p>Fréquence d'utilisation ?</p>
+    {% if caracteristique.name == "Sans-Fil" %}
+        Occationnnel
+    {% endif %}
 
+    <p>Fourchette de prix</p>
+    {% if caracteristique.name == "Sans-Fil" %}
+        {{product.price}}
+    {% endif %}
+
+
+    <p>Voici ce que nous avons selectonné pour vous:</p>
+
+    <a href="#"><img src="{{product.image}}" alt="img perceuse"></a>
 
 {% endblock %}
