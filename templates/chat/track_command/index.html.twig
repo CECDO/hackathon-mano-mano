@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello Track CommandController!{% endblock %}
+
+{% block body %}
+<p>Bonjour je suis Bot, comment puis je vous aider? votre question concerne peut-être une demande ci dessous?</p>
+<p>Suivre une commande</p>
+
+<p>Veuillez taper la réf. de votre commande dans la barre de recherche.</p>
+{{ form_start(form) }}
+{{ form_widget(form) }}
+{{ form_end(form) }}
+
+
+{% for command in commands %}
+    {{command.reference}} 
+    <p>Votre commande {{command.reference}} a bien été livré le 18/12/2021 à 12h54 au point relais : Relais Colis 4 av. Jules Ferry 92240 Malakoff </p>
+    <p>Horaires : Lundi au Samedi 9h-20h fermé le dimanche</p>
+{% endfor %}
+
+{% endblock %}
