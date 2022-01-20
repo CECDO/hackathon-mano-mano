@@ -19,7 +19,7 @@
                 <div class="position-relative">
                     <img src="https://i.ibb.co/9vhGnVD/chaboticon.png" alt=""
                         class="position-absolute top-0 start-0 translate-middle p-1" style="max-width:6vh;">
-                    <a class="btn btn-outline-primary" style="border-radius: 0.5rem;">
+                    <a href="/" class="btn btn-outline-primary" style="border-radius: 0.5rem;">
                         Bonjour je suis ManoBot, </br>
                         Votre question concerne peut-être une demande ci-dessous?</a>
                 </div>
@@ -33,7 +33,7 @@
                 <div class="position-relative" style="margin-top: 10vh;">
                     <img src="https://i.ibb.co/9vhGnVD/chaboticon.png" alt=""
                         class="position-absolute top-0 start-0 translate-middle p-1" style="max-width:6vh;">
-                    <a class="btn btn-outline-primary" style="border-radius: 0.5rem;">
+                    <a href="/return/command" class="btn btn-outline-primary" style="border-radius: 0.5rem;">
                         Veuillez taper la réf. de votre commande dans la barre de recherche.</a>
                 </div>
                 {% for command in commands %}
@@ -50,7 +50,10 @@
                     <img src="https://i.ibb.co/9vhGnVD/chaboticon.png" alt=""
                         class="position-absolute top-0 start-0 translate-middle p-1" style="max-width:6vh;">
                     <a  class="btn btn-outline-primary" style="border-radius: 0.5rem;">Veuillez selectionner l’article à retourner <br><br></a>
+<<<<<<< HEAD
+=======
                     <a href="/return/command/1"><button class="btn my-2">REF: {{command.product.reference}} - {{command.product.marque}} {{command.product.name}}</button></a>
+>>>>>>> 54b29aa7da279aeb5d5627fa944a634a303745cf
                 </div>
                 {% endfor %}
             </div>
