@@ -16,7 +16,7 @@ class CaracteristiqueController extends AbstractController
      */
     public function index(Caracteristique $caracteristique, Product $product): Response
     {
-        return $this->render('chat/caracteristique/index.html.twig', [
+        return $this->render('chat/product/caracteristique/index.html.twig', [
             'caracteristique' => $caracteristique,
             'product' => $product,
         ]);

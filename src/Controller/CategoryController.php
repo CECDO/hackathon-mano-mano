@@ -20,7 +20,7 @@ class CategoryController extends AbstractController
      */
     public function index(CategoryRepository $categoryRepository): Response
     {
-        return $this->render('chat/categories/index.html.twig',[
+        return $this->render('chat//product/categories/index.html.twig',[
             'categories' => $categoryRepository->findAll()
         ]);
     }
@@ -40,7 +40,7 @@ class CategoryController extends AbstractController
             $product = $productRepository->findBy(['name' => $search]);
         }
 
-        return $this->render('chat/categories/show.html.twig', [
+        return $this->render('chat/product/categories/show.html.twig', [
             'category' => $category,
             'form' => $form->createView(),
             'products' => $product,
