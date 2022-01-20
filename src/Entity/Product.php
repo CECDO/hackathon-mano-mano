@@ -65,6 +65,11 @@ class Product
      */
     private $features;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Materiaux::class, inversedBy="products")
+     */
+    private $materiaux;
+
     public function __construct()
     {
         $this->commands = new ArrayCollection();
@@ -210,6 +215,18 @@ class Product
     public function removeFeature(Caracteristique $feature): self
     {
         $this->features->removeElement($feature);
+
+        return $this;
+    }
+
+    public function getMateriaux(): ?Materiaux
+    {
+        return $this->materiaux;
+    }
+
+    public function setMateriaux(?Materiaux $materiaux): self
+    {
+        $this->materiaux = $materiaux;
 
         return $this;
     }

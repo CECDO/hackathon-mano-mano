@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Caracteristique;
+use App\Entity\Materiaux;
 use App\Entity\Product;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -11,12 +12,14 @@ use Symfony\Component\Routing\Annotation\Route;
 class MateriauxController extends AbstractController
 {
     /**
-     * @Route("/materiaux/{name}", name="materiaux")
+     * @Route("/materiaux/{id}", name="materiaux")
      */
-    public function index(Caracteristique $caracteristique): Response
+    public function index(Materiaux $materiaux, Product $product, Caracteristique $caracteristique): Response
     {
         return $this->render('chat/materiaux/index.html.twig', [
-            'caracteristique' => $caracteristique
+            'materiaux' => $materiaux,
+            'product' => $product,
+            'caracteristique' => $caracteristique,
         ]);
     }
 }
