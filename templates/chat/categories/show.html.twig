@@ -1,23 +1,44 @@
-<pre>
-    {{ dump(category) }}
-</pre>
 
+
+
+
+
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Caractéristique{% endblock %}
+
+{% block body %}
+
+<p>Veillez selectionner la categorie de votre produit</p>
 {{category.icon}}
 
 <p>Veuillez saisir le type de produit dans la barre de recherche</p>
-
-{% for product in products %}
-
-    {% if product.name == "Perceuse" %}
-        <p>Veillez selectionnez la caracteristique</p>
-        <button><a href="">Fillaire</a></button>
-        <button><a href="">Sans-fil</a></button>
-    {% endif %}
-
-
-{% endfor %}
-
 {{ form_start(form) }}
 {{ form_widget(form) }}
 {{ form_end(form) }}
 
+
+{% for product in products %}
+    <div class="product" style="display: block;">
+        {% if product.name == "Perceuse" %}
+        <p>Veillez selectionnez la caracteristique</p>
+        <button><a href="">Fillaire</a></button>
+        <button><a href="/caracteristique/1">Sans-fil</a></button>
+    {% endif %}
+
+    {% if product.name == "Lit" %}
+        <p>Veillez selectionnez la caracteristique</p>
+        <button><a href="">Normal</a></button>
+        <button><a href="">Souple</a></button>
+        <button><a href="/caracteristique/2">King-size</a></button>
+    {% endif %}
+    </div>
+    
+{% endfor %}
+
+
+
+
+
+{% endblock %}

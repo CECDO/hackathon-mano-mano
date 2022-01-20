@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CaracteristiqueController!{% endblock %}
+
+{% block body %}
+
+<p>Veillez selectionner la categorie de votre produit</p>
+{{product.category.icon}}
+
+    <p>Veuillez saisir le type de produit dans la barre de recherche</p>
+    {% for product in caracteristique.products %}
+            {{ product.name }}
+{% endfor %}
+
+<p>Veuillez selectionner la caracteristique:</p>
+
+    {% if product.name == "Perceuse" %}
+        {{ caracteristique.name }}
+    {% endif %}
+
+        <p>Type de materiaux à percer?</p>
+    {% if caracteristique.name == "Sans-Fil" %}
+        Dur
+    {% endif %}
+
+    <p>Frequence d’utilisation?</p>
+    <button>Intensif</button>
+    <button><a href="/intentity/1">Occasionel</a></button>
+
+
+{% endblock %}

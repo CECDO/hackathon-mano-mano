@@ -2,15 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\CaracteristiqueRepository;
+use App\Repository\MateriauxRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=CaracteristiqueRepository::class)
+ * @ORM\Entity(repositoryClass=MateriauxRepository::class)
  */
-class Caracteristique
+class Materiaux
 {
     /**
      * @ORM\Id
@@ -25,13 +25,12 @@ class Caracteristique
     private $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Product::class, mappedBy="features")
+     * @ORM\OneToMany(targetEntity=Product::class, mappedBy="materiaux")
      */
     private $products;
 
     public function __construct()
     {
-        $this->product = new ArrayCollection();
         $this->products = new ArrayCollection();
     }
 
@@ -64,7 +63,7 @@ class Caracteristique
     {
         if (!$this->products->contains($product)) {
             $this->products[] = $product;
-            $product->addFeature($this);
+            $product->setMateriaux($this);
         }
 
         return $this;
@@ -73,10 +72,12 @@ class Caracteristique
     public function removeProduct(Product $product): self
     {
         if ($this->products->removeElement($product)) {
-            $product->removeFeature($this);
+            // set the owning side to null (unless already changed)
+            if ($product->getMateriaux() === $this) {
+                $product->setMateriaux(null);
+            }
         }
 
         return $this;
     }
-
 }
