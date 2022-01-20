@@ -40,7 +40,7 @@ class CategoryController extends AbstractController
             $product = $productRepository->findBy(['name' => $search]);
         }
 
-        return $this->render('chat//product/categories/show.html.twig', [
+        return $this->render('chat/product/categories/show.html.twig', [
             'category' => $category,
             'form' => $form->createView(),
             'products' => $product,

@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FactureController!{% endblock %}
+
+{% block body %}
+<p>Bonjour je suis Bot, comment puis je vous aider? votre question concerne peut-être une demande ci dessous?</p>
+<p>Editer ma facture</p>
+
+<p>Veuillez taper la réf. de votre commande dans la barre de recherche.</p>
+{{ form_start(form) }}
+{{ form_widget(form) }}
+{{ form_end(form) }}
+
+
+{% for command in commands %}
+    {{command.reference}}
+    <p>Veuillez cliquer sur ce lien afin de télécharger votre facture.</p>
+    {{command.reference}}
+
+    <p></p>
+{% endfor %}
+
+
+
+{% endblock %}
