@@ -1,22 +1,80 @@
-
-
-
-
-
-
 {% extends 'base.html.twig' %}
 
-{% block title %}Caractéristique{% endblock %}
+{% block title %}JE SAISI UN PRODUIT{% endblock %}
 
 {% block body %}
+
+
+<main class="mh-100 mw-100" >
+    
+    <section class="chatbot col-3 mh-100 shadow position-fixed bottom-0 end-0 m-2 mb-5" style="border-radius: 0.5rem;" id="chat">
+        <div class="card">
+            <div class="bg-primary p-3 hover-overlay ripple shadow-2-strong p-3 rounded-top" data-mdb-ripple-color="light">
+              <a class="d-flex " href="#">
+                  <img class="w-25" src="https://i.ibb.co/TwcK46V/Mano-Manoicon.png" alt="ManoBot">
+                  <h1 class="text-light h3 text-center d-flex align-items-center pl-2" style="padding-left:20px;">Bienvenue sur ManoBot</h1>
+              </a>
+            </div>
+            <div class="card-body p-5">
+                <div class="position-relative">
+                    <img src="https://i.ibb.co/9vhGnVD/chaboticon.png" alt="" class="position-absolute top-0 start-0 translate-middle p-1" style="max-width:6vh;">
+              <a class="btn btn-outline-primary" style="border-radius: 0.5rem;"> Bonjour je suis ManoBot, </br> Votre question concerne peut-être une demande ci-dessous?</a></div>
+                <div class="d-flex flex-column my-2 col-8">
+              <a href="{{ path('chat_category_all') }}" class="btn my-2" style="border-radius: 0.5rem;">Je cherche un produit</a>
+                <div class="position-relative">
+                <img src="https://i.ibb.co/9vhGnVD/chaboticon.png" alt="" class="position-absolute top-0 start-0 translate-middle p-1" style="max-width:6vh;">
+                <a class="btn btn-outline-primary" style="border-radius: 0.5rem;">Veuillez selectionner la categorie de votre produit</a></div>
+                <div class="d-flex flex-column my-2 col-8">
+                <a href="" class="btn my-2 " style="border-radius: 0.5rem; width:15vh; height:15vh;">
+                  <i class="fas fas-8x">{{category.icon}} </i>
+                  <p class="d-flex justify-content-center">{{category.alt}}</p>
+                </a>
+                </div>
+            
+            </div>
+
+            <div class="position-relative">
+                <a href="#" class="btn btn-primary my-1 position-absolute end-0" style="border-radius: 0.5rem;">Suivre une commande</a><img src="https://i.ibb.co/4ZZwtT1/avatr-chatbot.png" alt="" class="p-1 position-absolute top-0 start-100 translate-middle p-1" style="max-width:5vh;">
+                
+            </div>
+            </div>
+            
+            
+            {{ form_start(form) }}
+            <div class="form-outline m-3">
+                {{ form_widget(form.search, {'attr': {'class': 'form-control'}}) }}
+                <label class="form-label" for="typeText">Saisissez votre requête</label>
+            </div>
+            {{ form_end(form) }}
+
+          </div>
+ 
+    </section>
+
+    <img class="bg-0" src="https://i.ibb.co/bLp4jrB/animation-500-kymvhbxo-unscreen.gif"> 
+
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <p>Veillez selectionner la categorie de votre produit</p>
 {{category.icon}}
 
 <p>Veuillez saisir le type de produit dans la barre de recherche</p>
-{{ form_start(form) }}
-{{ form_widget(form) }}
-{{ form_end(form) }}
+
 
 
 {% for product in products %}
@@ -25,13 +83,6 @@
         <p>Veillez selectionnez la caracteristique</p>
         <button><a href="">Fillaire</a></button>
         <button><a href="/caracteristique/1">Sans-fil</a></button>
-    {% endif %}
-
-    {% if product.name == "Lit" %}
-        <p>Veillez selectionnez la caracteristique</p>
-        <button><a href="">Normal</a></button>
-        <button><a href="">Souple</a></button>
-        <button><a href="/caracteristique/2">King-size</a></button>
     {% endif %}
     </div>
     
