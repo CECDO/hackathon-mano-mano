@@ -25,13 +25,14 @@ class Caracteristique
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity=Product::class, mappedBy="caracteristique")
+     * @ORM\ManyToMany(targetEntity=Product::class, mappedBy="features")
      */
-    private $product;
+    private $products;
 
     public function __construct()
     {
         $this->product = new ArrayCollection();
+        $this->products = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -54,16 +55,16 @@ class Caracteristique
     /**
      * @return Collection|Product[]
      */
-    public function getProduct(): Collection
+    public function getProducts(): Collection
     {
-        return $this->product;
+        return $this->products;
     }
 
     public function addProduct(Product $product): self
     {
-        if (!$this->product->contains($product)) {
-            $this->product[] = $product;
-            $product->setCaracteristique($this);
+        if (!$this->products->contains($product)) {
+            $this->products[] = $product;
+            $product->addFeature($this);
         }
 
         return $this;
@@ -71,13 +72,11 @@ class Caracteristique
 
     public function removeProduct(Product $product): self
     {
-        if ($this->product->removeElement($product)) {
-            // set the owning side to null (unless already changed)
-            if ($product->getCaracteristique() === $this) {
-                $product->setCaracteristique(null);
-            }
+        if ($this->products->removeElement($product)) {
+            $product->removeFeature($this);
         }
 
         return $this;
     }
+
 }

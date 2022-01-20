@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MateriauxController!{% endblock %}
+
+{% block body %}
+
+
+<p>Veillez selectionner la categorie de votre produit</p>
+
+
+<p>Veuillez saisir le type de produit dans la barre de recherche</p>
+    Perceuse
+
+<p>Veuillez selectionner la caracteristique:</p>
+    Sans-Fil
+
+{% if caracteristique.name == "Dur" %}
+    <p>Type de matériaux a percer</p>
+    {{ caracteristique.name }}
+{% endif %}
+
+
+
+
+
+<pre>
+    {{ dump(caracteristique) }}
+</pre>
+{% endblock %}

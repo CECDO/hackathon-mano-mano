@@ -61,13 +61,14 @@ class Product
     private $category;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Caracteristique::class, inversedBy="product")
+     * @ORM\ManyToMany(targetEntity=Caracteristique::class, inversedBy="products")
      */
-    private $caracteristique;
+    private $features;
 
     public function __construct()
     {
         $this->commands = new ArrayCollection();
+        $this->features = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -189,14 +190,26 @@ class Product
         return $this;
     }
 
-    public function getCaracteristique(): ?Caracteristique
+    /**
+     * @return Collection|Caracteristique[]
+     */
+    public function getFeatures(): Collection
     {
-        return $this->caracteristique;
+        return $this->features;
     }
 
-    public function setCaracteristique(?Caracteristique $caracteristique): self
+    public function addFeature(Caracteristique $feature): self
     {
-        $this->caracteristique = $caracteristique;
+        if (!$this->features->contains($feature)) {
+            $this->features[] = $feature;
+        }
+
+        return $this;
+    }
+
+    public function removeFeature(Caracteristique $feature): self
+    {
+        $this->features->removeElement($feature);
 
         return $this;
     }

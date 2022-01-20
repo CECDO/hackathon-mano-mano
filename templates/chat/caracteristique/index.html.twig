@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CaracteristiqueController!{% endblock %}
+
+{% block body %}
+
+<p>Veillez selectionner la categorie de votre produit</p>
+{{product.category.icon}}
+
+<p>Veuillez saisir le type de produit dans la barre de recherche</p>
+    {% if product.name == "Lit" %}
+        {{ product.name }}
+    {% endif %}
+
+{% for product in caracteristique.products %}
+        {{ product.name }}
+{% endfor %}
+
+<p>Veuillez selectionner la caracteristique:</p>
+    
+
+    {% if product.name == "Lit" %}
+        <p>KingSize</p>
+    {% endif %}
+
+    {% if product.name == "Perceuse" %}
+        {{ caracteristique.name }}
+    {% endif %}
+
+
+    {% if caracteristique.name == "Sans-Fil" %}
+        <p>Quelle type de materiaux voulez vous percer ?</p>
+        <button> <a href="/materiaux/dur">dur (ex: beton)</a></button>
+        <button><a href="/materiaux/souple">souple (ex: placo)</a></button>
+    {% endif %}
+
+    {% if caracteristique.name == "KingSize" %}
+        <p>Quelle type de dimension voulez vous ?</p>
+        <button>200x200</button>
+        <button>180x200</button>
+    {% endif %}
+
+{% endblock %}
