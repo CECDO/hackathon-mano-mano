@@ -3,11 +3,35 @@
 {% block title %}Hello DefaultController!{% endblock %}
 
 {% block body %}
-<h1>Bienvenue sur le chat Mano Mano</h1>
-<p>Bonjour je suis ManoBot, comment puis je vous aider ? votre question concerne peut-être une demande ci dessous?</p>
-<button><a href="{{path('chat_category_all') }}">Je cherche un produit</a></button>
-<button>Suivre une commande</button>
-<button>Editer ma facture</button>
-<button>Retourner un article</button>
-<button>Contacter le SAV</button>
+<main class="mh-100 mw-100" >
+    <section class="container">
+        <div class="d-flex p-5 align-items-center opacity-75 justify-content-center position-relative"
+        >
+    </div>
+    </section>
+    <section class="chatbot">
+        <div class="card">
+            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+              <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp" class="img-fluid"/>
+              <a href="#!"><h1>Bienvenue sur le chat Mano Mano</h1>
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+              </a>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="{{path('chat_category_all') }}" class="btn btn-primary">Je cherche un produit</a>
+            </div>
+          </div>
+
+    
+    <p>Bonjour je suis ManoBot, comment puis je vous aider ? votre question concerne peut-être une demande ci dessous?</p>
+    <button><a href="{{path('chat_category_all') }}">Je cherche un produit</a></button>
+    <button>Suivre une commande</button>
+    <button>Editer ma facture</button>
+    <button>Retourner un article</button>
+    <button>Contacter le SAV</button>
+    </section>
+</main>
+
 {% endblock %}
