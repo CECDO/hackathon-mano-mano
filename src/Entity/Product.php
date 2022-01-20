@@ -70,6 +70,11 @@ class Product
      */
     private $materiaux;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $reference;
+
     public function __construct()
     {
         $this->commands = new ArrayCollection();
@@ -227,6 +232,18 @@ class Product
     public function setMateriaux(?Materiaux $materiaux): self
     {
         $this->materiaux = $materiaux;
+
+        return $this;
+    }
+
+    public function getReference(): ?string
+    {
+        return $this->reference;
+    }
+
+    public function setReference(?string $reference): self
+    {
+        $this->reference = $reference;
 
         return $this;
     }

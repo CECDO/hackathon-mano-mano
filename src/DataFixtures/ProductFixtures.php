@@ -31,6 +31,7 @@ class ProductFixtures extends Fixture
             $product->setMaterial('béton');
             $product->addFeature($this->getReference('caracteristique_0'));
             $product->setMateriaux($this->getReference('materiaux_0'));
+            $product->setReference(uniqid());
             $manager->persist($product);
             $this->addReference('product_outillage_' . $key, $product);
         }

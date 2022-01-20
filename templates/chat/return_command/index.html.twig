@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello FactureController!{% endblock %}
+{% block title %}Hello ReturnCommandController!{% endblock %}
 
 {% block body %}
 <p>Bonjour je suis Bot, comment puis je vous aider? votre question concerne peut-être une demande ci dessous?</p>
-<p>Editer ma facture</p>
+<p>Retourner un produit</p>
 
 <p>Veuillez taper la réf. de votre commande dans la barre de recherche.</p>
 {{ form_start(form) }}
@@ -13,11 +13,7 @@
 
 
 {% for command in commands %}
-    {{command.reference}}
-    <p>Veuillez cliquer sur ce lien afin de télécharger votre facture.</p>
-    {{command.reference}}
+    <p>Veuillez selectionner l’article à retourner</p>
+    <button><a href="/return/command/1">REF: {{command.product.reference}} - {{command.product.marque}} {{command.product.name}}</a> </button>
 {% endfor %}
-
-
-
 {% endblock %}

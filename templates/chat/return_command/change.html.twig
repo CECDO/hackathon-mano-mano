@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ReturnCommandController!{% endblock %}
+
+{% block body %}
+<p>Bonjour je suis Bot, comment puis je vous aider? votre question concerne peut-être une demande ci dessous?</p>
+<p>Retourner un produit</p>
+
+<p>Veuillez taper la réf. de votre commande dans la barre de recherche.</p>
+{{command.reference}}
+
+
+<p>Veuillez selectionner l’article à retourner</p>
+    <p>REF: {{command.product.reference}} - {{command.product.marque}} {{command.product.name}} </p>
+
+<p>Veuillez nous indiquer la raison du retour</p>
+<p>J'ai changé d'avis</p>
+
+<p>Veuillez cliquer sur ce lien pour acceder à nos onditions de retour et remboursement</p>
+<button><a href="#">Retours et remboursements</a></button>
+
+{% endblock %}
