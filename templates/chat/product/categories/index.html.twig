@@ -39,18 +39,15 @@
 
         <div class="col-12" style="margin-top:2vh;">
           {% for category in categories %}
-          <a href="{{path('chat_category_id', {'id': category.id} )}}" class="btn my-2 mx-2"
+          <a href="{{ path('chat_category_id', {'id': category.id} ) }}" class="btn my-2 mx-2"
             style="border-radius: 0.5rem; width:15vh; height:15vh;">
-            <i class="fas fas-8x">{{category.icon}} </i>
-            <p class="d-flex justify-content-center">{{category.alt}}</p>
+            <i class="fas fas-8x"><img src="{{ category.icon }}" alt=""></i>
+            <p class="d-flex justify-content-center">{{ category.alt }}</p>
           </a>
           {% endfor %}
         </div>
-
-
       </div>
-
   </section>
 </main>
 
-  {% endblock %}
+{% endblock %}
