@@ -1,31 +1,115 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CaracteristiqueController!{% endblock %}
+{% block title %}FREQUENCE UTILISATION{% endblock %}
 
 {% block body %}
 
-<p>Veillez selectionner la categorie de votre produit</p>
-{{product.category.icon}}
+    <main class="mh-100 mw-100">
 
-    <p>Veuillez saisir le type de produit dans la barre de recherche</p>
-    {% for product in caracteristique.products %}
-            {{ product.name }}
-{% endfor %}
+        <section class="chatbot col-3 mh-100 shadow position-fixed bottom-0 end-0 m-2 mb-5" style="border-radius: 0.5rem;">
+            <div class="card">
+                <div class="bg-primary p-3 hover-overlay ripple shadow-2-strong p-3 rounded-top"
+                    data-mdb-ripple-color="light">
+                    <a class="d-flex " href="#">
+                        <img class="w-25" src="https://i.ibb.co/TwcK46V/Mano-Manoicon.png" alt="ManoBot">
+                        <h1 class="text-light h3 text-center d-flex align-items-center pl-2" style="padding-left:20px;">
+                            Bienvenue sur
+                            ManoBot</h1>
+    
+                    </a>
+                </div>
+                <div class="scroll-container" id="scroll">
+                    <div class="card-body p-5">
+                        <div class="position-relative">
+                            <img src="https://i.ibb.co/9vhGnVD/chaboticon.png" alt=""
+                                class="position-absolute top-0 start-0 translate-middle p-1" style="max-width:6vh;">
+                            <a href="/" class="btn btn-outline-primary" style="border-radius: 0.5rem;">
+                                Bonjour je suis ManoBot, </br>
+                                Votre question concerne peut-être une demande ci-dessous?</a>
+                        </div>
+        
+                        <div class="position-relative my-4">
+                            <a class="btn btn-primary my-1 position-absolute end-0" style="border-radius: 0.5rem;">Je cherche un
+                                produit</a>
+                            <img src="https://i.ibb.co/4ZZwtT1/avatr-chatbot.png" alt=""
+                                class="p-1 position-absolute top-0 start-100 translate-middle p-1" style="max-width:5vh;">
+                        </div>
+        
+                        <div class="position-relative" style="margin-top: 10vh;">
+                            <img src="https://i.ibb.co/9vhGnVD/chaboticon.png" alt=""
+                                class="position-absolute top-0 start-0 translate-middle p-1" style="max-width:6vh;">
+                            <a class="btn btn-outline-primary" style="border-radius: 0.5rem;">
+                                Veuillez selectionner la categorie de votre produit</a>
+                        </div>
+        
+                        <div class="position-relative my-4">
+                            <a href="#" class="btn btn-primary my-1 position-absolute end-0" style="border-radius: 0.5rem; width:15vh; height:15vh;">
+                                <i class="fas fas-8x">{{product.category.icon}} </i>
+                                <p class="d-flex justify-content-center">{{product.category.alt}}</p>
+                            </a>
+                            <img src="https://i.ibb.co/4ZZwtT1/avatr-chatbot.png" alt="" class="p-1 position-absolute top-0 start-100 translate-middle p-1" style="max-width:5vh;">
+                        </div>
+        
+                        <div class="position-relative" style="margin-top: 21vh;">
+                            <img src="https://i.ibb.co/9vhGnVD/chaboticon.png" alt="" class="position-absolute top-0 start-0 translate-middle p-1" style="max-width:6vh;">
+                            <a href="/category/2" class="btn btn-outline-primary" style="border-radius: 0.5rem;">Veuillez saisir le type de produit dans la barre de recherche</a>
+                        </div>
+        
+                        {% for product in caracteristique.products %}
+                        <div class="position-relative my-4">
+                            <a class="btn btn-primary my-1 position-absolute end-0" style="border-radius: 0.5rem;">{{
+                                product.name }}</a>
+                            <img src="https://i.ibb.co/4ZZwtT1/avatr-chatbot.png" alt=""
+                                class="p-1 position-absolute top-0 start-100 translate-middle p-1" style="max-width:5vh;">
+                        </div>
+                        {% endfor %}
+        
+                        <div class="position-relative" style="margin-top: 10vh;">
+                            <img src="https://i.ibb.co/9vhGnVD/chaboticon.png" alt=""
+                                class="position-absolute top-0 start-0 translate-middle p-1" style="max-width:6vh;">
+                            <a href="/category/2" class="btn btn-outline-primary" style="border-radius: 0.5rem;">
+                                Veuillez selectionner la caracteristique. <br></a>
+                        </div>
+        
+                        <div class="position-relative my-4">
+                            <a class="btn btn-primary my-1 position-absolute end-0" style="border-radius: 0.5rem;">Sans-Fil</a>
+                            <img src="https://i.ibb.co/4ZZwtT1/avatr-chatbot.png" alt=""
+                                class="p-1 position-absolute top-0 start-100 translate-middle p-1" style="max-width:5vh;">
+                        </div>
+        
+                        <div class="position-relative" style="margin-top: 10vh;">
+                            <img src="https://i.ibb.co/9vhGnVD/chaboticon.png" alt=""
+                                class="position-absolute top-0 start-0 translate-middle p-1" style="max-width:6vh;">
+                            <a href="/caracteristique/1" class="btn btn-outline-primary" style="border-radius: 0.5rem;">
+                                Quel type de materiaux voulez vous percer ?<br></a>
+                                
+                    {% if caracteristique.name == "Sans-Fil" %}
+                        <div class="position-relative my-4">
+                            <a class="btn btn-primary my-1 position-absolute end-0" style="border-radius: 0.5rem;">Beton</a>
+                            <img src="https://i.ibb.co/4ZZwtT1/avatr-chatbot.png" alt=""
+                            class="p-1 position-absolute top-0 start-100 translate-middle p-1" style="max-width:5vh;">
+                        </div>
+                    {% endif %}
 
-<p>Veuillez selectionner la caracteristique:</p>
+                    <div class="position-relative" style="margin-top: 10vh;">
+                        <img src="https://i.ibb.co/9vhGnVD/chaboticon.png" alt=""
+                            class="position-absolute top-0 start-0 translate-middle p-1" style="max-width:6vh;">
+                        <a href="/materiaux/1" class="btn btn-outline-primary" style="border-radius: 0.5rem;">
+                            Frequence d’utilisation ?<br></a>
+                            <div class="d-flex flex-row ">
+                                <a href=""><button class="btn mt-3 black">Intensif</button></a>
+                                <a href="/intentity/1"><button class="btn mx-2 mt-3 black">Occasionel</button></a>
+                            </div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+</main>
 
-    {% if product.name == "Perceuse" %}
-        {{ caracteristique.name }}
-    {% endif %}
-
-        <p>Type de materiaux à percer?</p>
-    {% if caracteristique.name == "Sans-Fil" %}
-        Dur
-    {% endif %}
-
-    <p>Frequence d’utilisation?</p>
-    <button>Intensif</button>
-    <button><a href="/intentity/1">Occasionel</a></button>
-
+<script>
+    element = document.getElementById('scroll');
+    element.scrollTop = element.scrollHeight;
+</script>
 
 {% endblock %}
