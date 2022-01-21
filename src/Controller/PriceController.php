@@ -22,4 +22,28 @@ class PriceController extends AbstractController
             'caracteristique' => $caracteristique,
         ]);
     }
+
+    /**
+     * @Route("/priceNo/{id}", name="priceNo")
+     */
+    public function indexNo(Materiaux $materiaux, Product $product, Caracteristique $caracteristique): Response
+    {
+        return $this->render('chat/product/price/indexNo.html.twig', [
+            'materiaux' => $materiaux,
+            'product' => $product,
+            'caracteristique' => $caracteristique,
+        ]);
+    }
+
+    /**
+     * @Route("/priceBis/{id}", name="priceBis")
+     */
+    public function indexBis(Materiaux $materiaux, Product $product, Caracteristique $caracteristique): Response
+    {
+        return $this->render('chat/product/price/indexBis.html.twig', [
+            'materiaux' => $materiaux,
+            'product' => $product,
+            'caracteristique' => $caracteristique,
+        ]);
+    }
 }

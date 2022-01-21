@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Intencity de Product{% endblock %}
+{% block title %}PRICE de Product et page finale{% endblock %}
 
 {% block body %}
 
@@ -68,11 +68,11 @@
                         <img src="https://i.ibb.co/9vhGnVD/chaboticon.png" alt=""
                             class="position-absolute top-0 start-0 translate-middle p-1" style="max-width:6vh;">
                         <a href="/category/2" class="btn btn-outline-primary" style="border-radius: 0.5rem;">
-                            Veuillez selectionner l'alimentation'. <br></a>
+                            Veuillez selectionner la caracteristique. <br></a>
                     </div>
     
                     <div class="position-relative my-4">
-                        <a class="btn btn-primary my-1 position-absolute end-0" style="border-radius: 0.5rem;">Batterie</a>
+                        <a class="btn btn-primary my-1 position-absolute end-0" style="border-radius: 0.5rem;">Sans-Fil</a>
                         <img src="https://i.ibb.co/4ZZwtT1/avatr-chatbot.png" alt=""
                             class="p-1 position-absolute top-0 start-100 translate-middle p-1" style="max-width:5vh;">
                     </div>
@@ -82,6 +82,7 @@
                             class="position-absolute top-0 start-0 translate-middle p-1" style="max-width:6vh;">
                         <a href="/caracteristique/1" class="btn btn-outline-primary" style="border-radius: 0.5rem;">
                             Quel type de materiaux voulez vous percer ?<br></a>
+                    </div>
                             
                 {% if caracteristique.name == "Sans-Fil" %}
                     <div class="position-relative my-4">
@@ -96,6 +97,7 @@
                         class="position-absolute top-0 start-0 translate-middle p-1" style="max-width:6vh;">
                     <a href="/materiaux/1" class="btn btn-outline-primary" style="border-radius: 0.5rem;">
                         Frequence d’utilisation ?<br></a>
+                    </div>
 
                         {% if caracteristique.name == "Sans-Fil" %}
                     <div class="position-relative my-4">
@@ -110,12 +112,36 @@
                         class="position-absolute top-0 start-0 translate-middle p-1" style="max-width:6vh;">
                     <a href="/intentity/1" class="btn btn-outline-primary" style="border-radius: 0.5rem;">
                         Fourchette de Prix ?<br></a>
+                    </div>
 
-                        <div class="d-flex flex-row ">
-                            <a href=""><button class="btn mt-3 black">0 - 100</button></a>
-                            <a href="/price/1"><button class="btn mx-2 mt-3 black">100 - 200</button></a>
-                            <a href=""><button class="btn mt-3 black">200 +</button></a>
+                        {% if caracteristique.name == "Sans-Fil" %}
+                    <div class="position-relative my-4">
+                        <a class="btn btn-primary my-1 position-absolute end-0" style="border-radius: 0.5rem;">100 - 200</a>
+                        <img src="https://i.ibb.co/4ZZwtT1/avatr-chatbot.png" alt=""
+                        class="p-1 position-absolute top-0 start-100 translate-middle p-1" style="max-width:5vh;">
+                    </div>
+                {% endif %}
+
+                <div class="position-relative" style="margin-top: 10vh;">
+                    <img src="https://i.ibb.co/9vhGnVD/chaboticon.png" alt=""
+                        class="position-absolute top-0 start-0 translate-middle p-1" style="max-width:6vh;">
+                    <a href="/intentity/1" class="btn btn-outline-primary" style="border-radius: 0.5rem;">
+                        Voici ce que nous avons selectonné pour vous :<br></a>
+                        <a href="" ><img class="mt-3" src="https://i.ibb.co/Tvnt2mb/Capture-d-e-cran-2022-01-21-a-07-26-01.png" alt="img perceuse"></a>
+                    </div>
+                 
+                    <div class="position-relative" style="margin-top: 2vh;">
+                        <img src="https://i.ibb.co/9vhGnVD/chaboticon.png" alt=""
+                            class="position-absolute top-0 start-0 translate-middle p-1" style="max-width:6vh;">
+                        <a href="/intentity/1" class="btn btn-outline-primary" style="border-radius: 0.5rem;">
+                            Cette selection vous convient ?<br></a>
                         </div>
+                    
+                        <div class="d-flex flex-row justify-content-center">
+                            <a href="https://www.manomano.fr/p/perceuse-visseuse-hikoki-18v-2-batteries-30-ah-chargeur-coffret-ds18djlwbz-40223977"><button class="btn btn-primary mt-3 black">Oh oui!</button></a>
+                            <a href="/price/1"><button class="btn btn-outline-danger mx-2 mt-3 black">Non</button></a>
+                        </div>
+                    
             </div>
         </div>
     </div>
@@ -127,5 +153,6 @@
 element = document.getElementById('scroll');
 element.scrollTop = element.scrollHeight;
 </script>
+
 
 {% endblock %}
