@@ -5,7 +5,7 @@
 {% block body %}
 <main class="mh-100 mw-100" >
     
-    <section class="chatbot col-3 mh-100 shadow position-fixed bottom-0 end-0 m-2 mb-5" style="border-radius: 0.5rem;" id="chat">
+    <section class="chatbot col-3 mh-100 shadow position-fixed bottom-0 end-0 " style="border-radius: 0.5rem;" id="chat">
         <div class="card">
             <div class="bg-primary p-3 hover-overlay ripple shadow-2-strong p-3 rounded-top" data-mdb-ripple-color="light">
               <a class="d-flex " href="#">
@@ -15,7 +15,7 @@
               </a>
             </div>
             <div class="scroll-container">
-<div class="card-body p-5">
+            <div class="card-body p-5">
                 <div class="position-relative">
                     <img src="https://i.ibb.co/9vhGnVD/chaboticon.png" alt="" class="position-absolute top-0 start-0 translate-middle p-1" style="max-width:6vh;">
               <a class="btn btn-outline-primary" style="border-radius: 0.5rem;">
@@ -39,8 +39,21 @@
  
     </section>
 
-    <img class="bg-0" src="https://i.ibb.co/bLp4jrB/animation-500-kymvhbxo-unscreen.gif"> 
+    <img class="button-chat" id="button-chat" src="https://i.ibb.co/bLp4jrB/animation-500-kymvhbxo-unscreen.gif"> 
 
 </main>
 
+
+<script>
+
+
+  const buttonChat = document.getElementById("button-chat");
+  buttonChat.addEventListener("click", openchat);
+
+  function openchat() {
+    let chat = document.getElementById("chat");
+    chat.classList.toggle("open");
+  }
+
+</script>
 {% endblock %}
