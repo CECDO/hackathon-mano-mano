@@ -1,0 +1,97 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ReturnCommandController!{% endblock %}
+
+{% block body %}
+
+
+
+
+
+<main class="mh-100 mw-100">
+    <section class="chatbot open col-3 mh-100 shadow position-fixed bottom-0 end-0 m-2 mb-2" style="border-radius: 0.5rem;">
+        <div class="card">
+            <div class="bg-primary p-3 hover-overlay ripple shadow-2-strong p-3 rounded-top"
+                data-mdb-ripple-color="light">
+                <a class="d-flex " href="/">
+                    <img class="w-25" src="https://i.ibb.co/TwcK46V/Mano-Manoicon.png" alt="ManoBot">
+                    <h1 class="text-light h3 text-center d-flex align-items-center pl-2" style="padding-left:20px;">
+                        Bienvenue sur ManoBot</h1>
+                </a>
+            </div>
+            <div class="scroll-container" id="scroll">
+                <div class="card-body p-5">
+                    <div class="position-relative">
+                        <img src="https://i.ibb.co/9vhGnVD/chaboticon.png" alt=""
+                            class="position-absolute top-0 start-0 translate-middle p-1" style="max-width:6vh;">
+                        <a href="/"class="btn btn-outline-primary" style="border-radius: 0.5rem;">
+                            Bonjour je suis ManoBot, </br>
+                            Votre question concerne peut-être une demande ci-dessous?</a>
+                    </div>
+                    <div class="position-relative my-4">
+                        <a href="#" class="btn btn-primary my-1 position-absolute end-0"
+                            style="border-radius: 0.5rem;">Retourner ma commande</a>
+                        <img src="https://i.ibb.co/4ZZwtT1/avatr-chatbot.png" alt=""
+                            class="p-1 position-absolute top-0 start-100 translate-middle p-1" style="max-width:5vh;">
+                    </div>
+    
+                    <div class="position-relative" style="margin-top: 10vh;">
+                        <img src="https://i.ibb.co/9vhGnVD/chaboticon.png" alt=""
+                            class="position-absolute top-0 start-0 translate-middle p-1" style="max-width:6vh;">
+                        <a href="/return/command" class="btn btn-outline-primary" style="border-radius: 0.5rem;">
+                            Veuillez taper la réf. de votre commande dans la barre de recherche.</a>
+                    </div>
+                    <div class="position-relative my-4">
+                        <a href="#" class="btn btn-primary my-1 position-absolute end-0"
+                            style="border-radius: 0.5rem;">{{command.reference}}</a>
+    
+                        <img src="https://i.ibb.co/4ZZwtT1/avatr-chatbot.png" alt=""
+                            class="p-1 position-absolute top-0 start-100 translate-middle p-1" style="max-width:5vh;">
+                    </div>
+                    <div class="position-relative" style="margin-top: 10vh;">
+                        <img src="https://i.ibb.co/9vhGnVD/chaboticon.png" alt=""
+                            class="position-absolute top-0 start-0 translate-middle p-1" style="max-width:6vh;">
+                        <a href="/return/command" class="btn btn-outline-primary" style="border-radius: 0.5rem;">Veuillez selectionner l’article à retourner <br><br></a>
+                    </div>
+    
+                    <div class="position-relative my-4">
+                        <a href="#" class="btn btn-primary my-1 position-absolute end-0"
+                            style="border-radius: 0.5rem;">REF: {{command.product.reference}} - {{command.product.marque}} {{command.product.name}}<br></a>
+                        <img src="https://i.ibb.co/4ZZwtT1/avatr-chatbot.png" alt=""
+                            class="p-1 position-absolute top-0 start-100 translate-middle p-1" style="max-width:5vh;">
+                    </div>
+    
+                    <div class="position-relative" style="margin-top: 10vh;">
+                        <img src="https://i.ibb.co/9vhGnVD/chaboticon.png" alt=""
+                            class="position-absolute top-0 start-0 translate-middle p-1" style="max-width:6vh;">
+                        <a href="/return/command/1" class="btn btn-outline-primary" style="border-radius: 0.5rem;">
+                            Veuillez nous indiquer la raison du retour. <br><br></a>
+                            <div class="position-relative my-4">
+                                <a href="#" class="btn btn-primary my-1 position-absolute end-0"
+                                    style="border-radius: 0.5rem;">J'ai changé d'avis</a>
+                                <img src="https://i.ibb.co/4ZZwtT1/avatr-chatbot.png" alt=""
+                                    class="p-1 position-absolute top-0 start-100 translate-middle p-1" style="max-width:5vh;">
+                            </div>
+                    </div>
+
+
+                    <div class="position-relative" style="margin-top: 10vh;">
+                        <img src="https://i.ibb.co/9vhGnVD/chaboticon.png" alt=""
+                            class="position-absolute top-0 start-0 translate-middle p-1" style="max-width:6vh;">
+                        <a class="btn btn-outline-primary" style="border-radius: 0.5rem;">
+                            Veuillez cliquer sur ce lien pour acceder à nos conditions de retour et remboursement. <br><br>
+                            <a href="https://faq.manomano.com/hc/fr/articles/360000487367-J-ai-chang%C3%A9-d-avis-je-ne-veux-plus-mon-produit-r%C3%A9tractation-"><button class="btn my-2 black">J'ai changé d'avis : Retours et remboursements</button></a>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+    </section>
+</main>
+
+<script>
+    element = document.getElementById('scroll');
+    element.scrollTop = element.scrollHeight;
+</script>
+
+{% endblock %}

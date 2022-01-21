@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PAGE HOME du MANOBOT{% endblock %}
+
+{% block body %}
+<main class="mh-100 mw-100" >
+    
+    <section class="chatbot col-3 mh-100 shadow position-fixed bottom-0 end-0 " style="border-radius: 0.5rem;" id="chat">
+        <div class="card">
+            <div class="bg-primary p-3 hover-overlay ripple shadow-2-strong p-3 rounded-top" data-mdb-ripple-color="light">
+              <a class="d-flex " href="#">
+                  <img class="w-25" src="https://i.ibb.co/TwcK46V/Mano-Manoicon.png" alt="ManoBot">
+                  <h1 class="text-light h3 text-center d-flex align-items-center pl-2" style="padding-left:20px;">Bienvenue sur ManoBot</h1>
+                
+              </a>
+            </div>
+            <div class="scroll-container">
+            <div class="card-body p-5">
+                <div class="position-relative">
+                    <img src="https://i.ibb.co/9vhGnVD/chaboticon.png" alt="" class="position-absolute top-0 start-0 translate-middle p-1" style="max-width:6vh;">
+              <a class="btn btn-outline-primary" style="border-radius: 0.5rem;">
+                  Bonjour je suis ManoBot, </br> 
+                  Votre question concerne peut-être une demande ci-dessous?</a>
+                </div>
+
+                
+                <div class="d-flex flex-column my-2 col-8">
+              <a href="{{ path('chat_category_all') }}" class="btn btn-light border border-primary my-2" style="border-radius: 0.5rem;" data-mdb-ripple-color="primary">Je cherche un produit</a>   
+              <a href="{{ path('track_command') }}" class="btn btn-light border border-primary my-1" style="border-radius: 0.5rem;" data-mdb-ripple-color="primary">Suivre une commande</a>
+              <a href="{{ path('facture_home') }} " class="btn btn-light border border-primary my-1" style="border-radius: 0.5rem;" data-mdb-ripple-color="primary">Consulter ma facture</a>
+              <a href="{{ path('return_command') }}" class="btn btn-light border border-primary my-1" style="border-radius: 0.5rem;" data-mdb-ripple-color="primary">Retourner un article</a>
+              
+
+            </div>
+            </div>
+            </div>
+            
+          </div>
+ 
+    </section>
+
+    <img class="button-chat" id="button-chat" src="https://i.ibb.co/bLp4jrB/animation-500-kymvhbxo-unscreen.gif"> 
+
+</main>
+
+
+<script>
+
+
+  const buttonChat = document.getElementById("button-chat");
+  buttonChat.addEventListener("click", openchat);
+
+  function openchat() {
+    let chat = document.getElementById("chat");
+    chat.classList.toggle("open");
+  }
+
+</script>
+{% endblock %}
